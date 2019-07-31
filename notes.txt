@@ -1,0 +1,32 @@
+song
+	- title
+		data-type: string
+		validations:
+			- can't be blank (done)
+			- can't be released by same artist in same year
+
+	- released
+		data-type: boolean
+		validations:
+			- must be true or false
+
+	- release_year
+		data-type: integer
+		validations:
+			- optional if released = false
+			- can't be blank if released = true
+			- must be less-than or equal-to current year
+
+	- artist_name
+		data-type: string
+		validations:
+			- can't be blank
+
+	- genre
+		data-type: string
+		validations:
+			- none
+
+def up
+  change_column :profiles, :show_attribute, :boolean, default: true
+end
