@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  resources :songs
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :songs, except: :destroy
+
+  get '/', to: 'songs#index', as: 'root'
+
+  delete '/songs/:id', to: 'songs#destroy', as: 'delete_song'
 end

@@ -20,6 +20,7 @@ class SongsController < ApplicationController
 
     def show
         set_song
+        song_attributes
     end
 
     def edit
@@ -52,6 +53,6 @@ class SongsController < ApplicationController
         end
 
         def song_attributes
-            @attributes = %w(title release_year released genre artist_name)
+            @attributes = %w(artist_name release_year genre)
         end
 end
