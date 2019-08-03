@@ -1,12 +1,11 @@
 class SongsController < ApplicationController
     def index
         @songs = Song.all
-        song_attributes
+        @attributes = %w(artist_name release_year genre)
     end
 
     def new
         @song = Song.new
-        song_attributes
     end
 
     def create
@@ -20,12 +19,10 @@ class SongsController < ApplicationController
 
     def show
         set_song
-        song_attributes
     end
 
     def edit
         set_song
-        song_attributes
     end
 
     def update
@@ -50,9 +47,5 @@ class SongsController < ApplicationController
 
         def song_params
             params.require(:song).permit(:title, :artist_name, :release_year, :released, :genre)
-        end
-
-        def song_attributes
-            @attributes = %w(artist_name release_year genre)
         end
 end
