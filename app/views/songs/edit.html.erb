@@ -1,0 +1,75 @@
+<h2>Edit <%=@song.title%></h2>
+
+<%= form_tag song_path(@song), method: "patch" do %>
+
+<% if @song.errors.any? %>
+  <div id="error_explanation">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if @song.errors[:title].any? %>
+  <div class="field_with_errors [name=title]">
+    <%= label_tag "title", "Title" %>
+    <%= text_field_tag "song_title", @song.title %>
+  </div>
+<% else %>
+
+  <div class="field">
+    <%= label_tag "title", "Title" %>
+    <%= text_field_tag "song_title" %>
+  </div>
+<% end %>
+
+<% if @song.errors[:released].any? %>
+  <div class="field_with_errors [name=released]">
+    <%= label_tag "released", "Released" %>
+    <%= check_box_tag "song_released", @song.released, true %>
+  </div>
+<% else %>
+  <div class="field">
+    <%= label_tag "released", "Released" %>
+    <%= check_box_tag "song_released", @song.released, true %>
+<% end %>
+
+<% if @song.errors[:artist_name].any? %>
+  <div class="field_with_errors [name=artis_name]">
+    <%= label_tag "artist_name", "Artist name" %>
+    <%= text_field_tag "song_artist_name", @song.artist_name %>
+  </div>
+<% else %>
+
+  <div class="field">
+    <%= label_tag "artist_name", "Artist name" %>
+    <%= text_field_tag "song_artist_name" %>
+<% end %>
+
+<% if @song.errors[:release_year].any? %>
+  <div class="field_with_errors [name=release_year]">
+    <%= label_tag "release_year", "Release year" %>
+    <%= text_field_tag "song_release_year", @song.release_year %>
+  </div>
+<% else %>
+  <div class="field">
+    <%= label_tag "release_year", "Release year" %>
+    <%= text_field_tag "song_release_year" %>
+<% end %>
+
+<% if @song.errors[:genre].any? %>
+  <div class="field_with_errors [name=release_year]">
+    <%= label_tag "genre", "Genre" %>
+    <%= text_field_tag "song_genre", @song.genre %>
+  </div>
+<% else %>
+  <div class="field">
+    <%= label_tag "genre", "Genre" %>
+    <%= text_field_tag "song_genre" %>
+<% end %>
+  <%= submit_tag "Create" %>
+  
+<% end %>
