@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   
   def index
-    @song = Song.all
+    @songs = Song.all
   end
   
   def create 
@@ -42,7 +42,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.permit(:title, :release_year, :artist_name, :genre)
+    params.permit(:title, :release_year, :released, :artist_name, :genre)
   end
   
 end
