@@ -22,7 +22,7 @@
 
   <div class="field">
     <%= label_tag "title", "Title" %>
-    <%= text_field_tag "song_title" %>
+    <%= text_field_tag "song_title", @song.title %>
   </div>
 <% end %>
 
@@ -46,7 +46,7 @@
 
   <div class="field">
     <%= label_tag "artist_name", "Artist name" %>
-    <%= text_field_tag "song_artist_name" %>
+    <%= text_field_tag "song_artist_name", @song.artist_name %>
 <% end %>
 
 <% if @song.errors[:release_year].any? %>
@@ -57,7 +57,7 @@
 <% else %>
   <div class="field">
     <%= label_tag "release_year", "Release year" %>
-    <%= text_field_tag "song_release_year" %>
+    <%= text_field_tag "song_release_year", @song.release_year %>
 <% end %>
 
 <% if @song.errors[:genre].any? %>
@@ -68,7 +68,7 @@
 <% else %>
   <div class="field">
     <%= label_tag "genre", "Genre" %>
-    <%= text_field_tag "song_genre" %>
+    <%= text_field_tag "song_genre", @song.genre %>
 <% end %>
   <%= submit_tag "Create" %>
   
