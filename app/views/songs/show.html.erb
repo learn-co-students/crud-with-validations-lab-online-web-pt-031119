@@ -4,4 +4,6 @@
 <h2>Released?: <%= @song.released %></h2>
 <h2>Year Released: <%= @song.release_year %></h2>
 
- <%= link_to "Delete", song_path(@song), method: :delete, data: { confirm: "Really?" } %>
+ <%= link_to 'Delete', song_path(@song), method: :delete  %>
+
+ <%= link_to 'Edit', edit_song_path(@song) %>

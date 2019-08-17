@@ -40,6 +40,8 @@ class SongsController < ApplicationController
   end
 
   def destroy
+  	#raise params.inspect
+  	# binding.pry
     Song.find(params[:id]).destroy
     redirect_to songs_path
   end
