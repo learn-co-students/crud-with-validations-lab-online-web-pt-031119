@@ -1,0 +1,29 @@
+<h2>Edit a Song</h2>
+<% if @song.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@song.errors.count, "error") %>
+      prohibited this Song from being saved:
+    </h2>
+ 
+    <ul>
+    <% @song.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @song do |f|%>
+<%= f.label :title, 'Song Title' %>
+<%= f.text_field :title %>
+<%= f.label :artist_name, 'Artist Name' %>
+<%= f.text_field :artist_name %>
+<%= f.label :genre, 'Genre' %>
+<%= f.text_field :genre %>
+<%= f.label :released, 'Released? (True/False)' %>
+<%= f.check_box :released %>
+<%= f.label :release_year, 'Release Year (YYYY)' %>
+<%= f.text_field :release_year %>
+<%= f.submit %>  
+<% end %>
