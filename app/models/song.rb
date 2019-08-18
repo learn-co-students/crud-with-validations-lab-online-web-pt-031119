@@ -1,9 +1,13 @@
 class Song < ApplicationRecord
 
     validates :title, presence: true
-    validate :norepeat
+    validates :title, uniqueness: {scope: %i[release_year artist_name]}
     validates :released, inclusion: [true, false]
-    validate :release
+    with_options if: :release? do |song|
+        song.validates :release_year, presence: true, if: :release?
+        song.validates :release_year, numericality: {less_than_or_equal_to: ->(song) {Date.current.year}}
+    end
+
     validates :artist_name, presence: true
 
     def norepeat
@@ -13,11 +17,8 @@ class Song < ApplicationRecord
         end
     end
 
-    def release
-        if :released
-            :release_year == true
-        end
+    def release?
+        released == true
     end
-
 
 end
