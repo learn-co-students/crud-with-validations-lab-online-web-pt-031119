@@ -1,5 +1,12 @@
-<ul>
+<table style="width:100%">
+	<tbody>
+	<tr>
+		<th>Song Title</th>
+	</tr>
+	<tr>
 <% @songs.each do |song| %>
-	<li><%= link_to song.title, song_path(song)  %></li>
+	<td><%= link_to song.title, song_path(song)  %></td>
+	</tr>
 <% end %>
-</ul>
+</tbody>
+</table>

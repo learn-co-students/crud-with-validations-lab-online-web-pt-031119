@@ -4,8 +4,7 @@ class Song < ApplicationRecord
 	validates :released, inclusion: {in: [true, false]}
 	validates :artist_name, presence: true
 	validates :genre, presence: true
-	validates :release_year, presence: true, if: :released?
-	validates :release_year, :numericality => {:only_integer => true, less_than_or_equal_to: Date.current.year }
+	validates :release_year, presence: true, :numericality => {:only_integer => true, less_than_or_equal_to: Date.current.year }, if: :released?
 
 
 end
